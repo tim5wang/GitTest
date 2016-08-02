@@ -60,5 +60,71 @@ insert into ac(id) values(123456789);
 insert into [table_neme] values(值1,值2,...);
 insert into [table_neme](列1,列2,...) values(值1,值2,...);
 ```
-	
-	
+## 第七解内容
+	条件查询
+```sh
+select * from ac where c1!=2;
+select * from ac where c1=2;
+select * from ac where c1>1;
+select * from ac where c1!=2 or c1=1;
+
+select * from ac where c1!=2 and idd!=123;
+select * from ac where (c1!=2 and idd!=123) or c1=5;
+```
+## 第八节内容
+		null判断 is/is not
+```sh
+select * from ac where gender is null;
+select * from ac where idd is not null;
+```
+## 第九节内容
+	select distinct去掉重复查找
+```sh
+select distinct idd from ac;
+```
+## 第十节内容
+	select 用order by 排序
+```sh
+select * from ac [where 字句]order by [column_name][asc/desc];
+select * from ac where c1!=0 order by idd asc, c1 desc ;
+```
+## 第十一节内容
+	使用linit截取查询结果
+```sh
+select * from ac [where 字句][order by字句] limit [offset,]rowCount;
+select * from ac limit 0,4;
+```
+## 第十二节内容
+	insert into 与 select组合使用
+```sh
+一般用法
+insert into [表名] values(值1,值2,...)
+insert into [表名](列1,列2,...) values(值1,值2,...)
+insert into 与select的组合用法
+insert into [表名1] select 列1,列2 from [表名2]
+insert into [表名1] (列1,列2) select 列3,列4 from [表2]
+```
+## 第十三节内容
+	更新表数据
+```sh
+update ac set c1=1 where c1=5;
+```
+## 第十四节内容
+	where语句中in操作符
+```sh
+select * from 表名 where 列名 in(valu1,value2,...)
+select * from 表名 where 列名 in(select 列名 from 表名...)
+select * from ac where c1 in(2);
+```
+## 第十五节内容
+	where语句中between操作符
+```sh
+select * from 表名 where 列名 between 值1 and 值2
+select * from 表名 where 列名 not between 值1 and 值2
+```
+## 第十六节内容
+	where语句中like操作符
+```sh
+select * from 表名 where 列名 [not] like pattern
+partten:匹配模式，比如'abc','%abc','%abc%'，'%'通配符可以替代任意字符串
+```
